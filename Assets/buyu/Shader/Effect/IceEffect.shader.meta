@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 3b6f4f5b4169eee41aa919a1e7577c1a
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _Refraction: {fileID: 2800000, guid: f20ef6394a329114c94d93a68ef967f8, type: 3}
+  - _MainTex: {fileID: 2800000, guid: 88ff7575bffeb7e498b8c4ee156fe11a, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: gamedata_shaders.unity3d
+  assetBundleVariant: 
