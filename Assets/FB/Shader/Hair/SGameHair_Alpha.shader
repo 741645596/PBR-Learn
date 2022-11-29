@@ -1,4 +1,4 @@
-﻿Shader "FB/Charactor/SGameHair_Alpha"  
+Shader "FB/Charactor/SGameHair_Alpha"  
 {
     Properties
     {
@@ -62,8 +62,8 @@
 
     #define _SHADOWS_SOFT
 
-    #include "Assets/Renders/Shaders/ShaderLibrary/Common/CommonFunction.hlsl"
-    #include "Assets/Renders/Shaders/ShaderLibrary/Common/GlobalIllumination.hlsl"
+    #include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
+    #include "Assets/Common/ShaderLibrary/Common/GlobalIllumination.hlsl"
 
     #define XColorSpaceDielectricSpecHair half4(0.08, 0.08, 0.08, 1.0 - 0.08) // standard dielectric reflectivity coef at incident angle (= 4%)
 
@@ -224,7 +224,7 @@
 
             HLSLPROGRAM
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Common/CommonFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
 
             #pragma vertex vertBase
             #pragma fragment fragBase
@@ -675,7 +675,7 @@
             #pragma vertex vertGameOut
             #pragma fragment frag
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Shadow/FlatShadow.hlsl"
+            #include "Assets/Common/ShaderLibrary/Shadow/FlatShadow.hlsl"
             ENDHLSL
         }
         
@@ -721,28 +721,5 @@
             }
             ENDHLSL
         }
-        
-        // Pass
-        // {
-        //     Name "DepthNormals"
-        //     Tags{"LightMode" = "DepthNormals"}
-
-        //     ZWrite On
-        //     Cull[_Cull]
-
-        //     HLSLPROGRAM
-        //     #pragma exclude_renderers gles gles3 glcore
-        //     #pragma target 4.5
-
-        //     #pragma vertex DepthNormalsVertex
-        //     #pragma fragment DepthNormalsFragment
-
-        //     // #include "Packages/com.unity.render-pipelines.universal/Shaders/LitInput.hlsl"
-        //     #include "Packages/com.unity.render-pipelines.universal/Shaders/LitDepthNormalsPass.hlsl"
-        //     ENDHLSL
-        // }
-
     }
-    
-    FallBack "Packages/com.unity.render-pipelines.universal/FallbackError"
 }

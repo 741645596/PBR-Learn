@@ -1,4 +1,4 @@
-﻿Shader "FB/Charactor/SGameHair_Blend"  
+Shader "FB/Charactor/SGameHair_Blend"  
 {
     Properties
     {
@@ -32,74 +32,6 @@
             "Queue" = "Transparent"
         }
         
-        // Pass
-        // {
-        //     Tags {"LightMode"="SRPDefaultUnlit"}
-
-        //     HLSLPROGRAM
-
-        //     #pragma prefer_hlslcc gles
-        //     #pragma exclude_renderers d3d11_9x
-        //     #pragma target 2.0
-
-        //     #include "Assets/Renders/Shaders/ShaderLibrary/Common/CommonFunction.hlsl"
-
-        //     #pragma vertex vertBase
-        //     #pragma fragment fragBase
-
-        //     CBUFFER_START(UnityPerMaterial)
-        //         half4  _Color;
-        //         float4 _MainTex_ST;
-
-        //         half   _Metallic;
-        //         half   _GlossMapScale;
-        //         half   _OcclusionStrength;
-
-        //         float  _CutOff;
-
-        //         float  _EnvBoost1k;
-        //         float  _EnvBoost2k;
-
-        //         float  _SpecularMultiplier;
-        //         float  _SpecularMultiplier2;
-        //         float  _PrimaryShift;
-        //         float  _SecondaryShift;
-        //     CBUFFER_END
-
-        //     TEXTURE2D(_MainTex);
-        //     SAMPLER(sampler_MainTex);
-
-        //     struct Attributes
-        //     {
-        //         float4 positionOS   : POSITION;
-        //         float2 uv           : TEXCOORD0;
-        //     };
-            
-        //     struct Varyings
-        //     {
-        //         float4 positionCS   : SV_POSITION;
-        //         float2 uv           : TEXCOORD0; 	
-        //     };
-
-        //     //顶点着色
-        //     Varyings vertBase(Attributes v)
-        //     {
-        //         Varyings o;
-        //         o.positionCS = TransformObjectToHClip(v.positionOS.xyz);
-        //         o.uv = v.uv;
-        //         return o;
-        //     }
-
-        //     half4 fragBase(Varyings i) : SV_Target
-        //     {
-        //         half4 texo = SAMPLE_TEXTURE2D(_MainTex,sampler_MainTex,i.uv) * _Color;
-        //         clip(texo.a - (1 - _CutOff));
-        //         return texo;
-        //     }
-
-        //     ENDHLSL
-        // }
-
         Pass{
             
             Tags{ "LightMode" = "UniversalForward" }
@@ -132,7 +64,7 @@
             #pragma fragment frag
 
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Common/CommonFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
 
             #define XColorSpaceDielectricSpecHair half4(0.08, 0.08, 0.08, 1.0 - 0.08) // standard dielectric reflectivity coef at incident angle (= 4%)
 
@@ -389,5 +321,4 @@
             ENDHLSL 
         }
     }
-    FallBack "Packages/com.unity.render-pipelines.universal/FallbackError"
 }
