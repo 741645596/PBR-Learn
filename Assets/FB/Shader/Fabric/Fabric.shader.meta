@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 9290e4c39ba035444948b92fe856bb86
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _BaseMap: {instanceID: 0}
+  - _NormalMap: {instanceID: 0}
+  - _MaskMap: {instanceID: 0}
+  - _ThreadMap: {fileID: 2800000, guid: 963d136eca7b7bc4e838b34654450ab2, type: 3}
+  - _FuzzMap: {fileID: 2800000, guid: 632ea38a7fe456b4d87ded4efbea8d6c, type: 3}
+  - _preIntegratedFGD: {fileID: 2800000, guid: fda53c83361ee1543b2621a533eae1a3, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

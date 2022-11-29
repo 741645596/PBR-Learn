@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.Reflection;
 using UnityEditor;
-using UnityEditor.Experimental.SceneManagement;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public static class HierarchyWindowHelper

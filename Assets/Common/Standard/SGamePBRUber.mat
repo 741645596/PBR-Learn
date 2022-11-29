@@ -1,0 +1,152 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SGamePBRUber
+  m_Shader: {fileID: 4800000, guid: 5a788a054890ddb42a4f72d5d8948281, type: 3}
+  m_ShaderKeywords: _EMISSION_ON _LASER_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
+  disabledShaderPasses:
+  - PBR fect PrePass
+  - SGameShadowPassTrans
+  - SGameShadowPass
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BaseMap:
+        m_Texture: {fileID: 2800000, guid: 8ae2dc7361e468643b2c34889201a776, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BentNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClearCoatCubeMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ClearCoatMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap_2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap_3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap_4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Detail_ID:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: 7532f384842c68049905828ccc5cd456, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EnergyLUT:
+        m_Texture: {fileID: 2800000, guid: 4c5730915aa0c124680f28955eb789c9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _LaserMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 2800000, guid: 52b214d42b356e040826e9de3795a215, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 2800000, guid: 2a358527277a38f45b84411b0f2fe624, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - ENABLE_HQ: 1
+    - _AlphaClip: 0
+    - _Blend: 0
+    - _BlendOp: 0
+    - _ClearCoat: 0
+    - _ClearCoatDownSmoothness: 0.8
+    - _ClearCoatMask: 0.8
+    - _ClearCoatSmoothness: 0.8
+    - _ClearCoat_Detail_Factor: 0
+    - _Cull: 0
+    - _Cutoff: 0.443
+    - _DetailAlbedoScale_1: 0.8
+    - _DetailAlbedoScale_2: 0.8
+    - _DetailAlbedoScale_3: 0.8
+    - _DetailAlbedoScale_4: 0.8
+    - _DetailMap_Tilling_1: 60
+    - _DetailMap_Tilling_2: 60
+    - _DetailMap_Tilling_3: 60
+    - _DetailMap_Tilling_4: 60
+    - _DetailNormalScale_1: 0.8
+    - _DetailNormalScale_2: 0.8
+    - _DetailNormalScale_3: 0.8
+    - _DetailNormalScale_4: 0.8
+    - _DetailSmoothnessScale_1: 0.8
+    - _DetailSmoothnessScale_2: 0.8
+    - _DetailSmoothnessScale_3: 0.8
+    - _DetailSmoothnessScale_4: 0.8
+    - _Detail_Layer: 4
+    - _DstBlend: 0
+    - _Emission: 1
+    - _LaserAnisotropy: 0
+    - _LaserAreaCubemapInt: 0
+    - _LaserBrdfIntensity: 0.618
+    - _LaserIOR: 0.3
+    - _LaserSmoothstepValue_1: 0
+    - _LaserSmoothstepValue_2: 1
+    - _LaserStrength: 1
+    - _LaserThickness: 0.137
+    - _LaserUniversal: 0
+    - _MeshHight: 0
+    - _Metallic: 1
+    - _OcclusionStrength: 1
+    - _PlanarShadow: 0
+    - _PlantShadowOpen: 1
+    - _PreZ: 0
+    - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _Reflectance: 1
+    - _ShadowHeight: 0
+    - _ShadowOffsetX: 0
+    - _ShadowOffsetZ: 0
+    - _Smoothness: 1
+    - _SpecularOcclusionStrength: 0
+    - _SrcBlend: 1
+    - _Surface: 0
+    - _UseDetailMap: 0
+    - _UseLaser: 1
+    - _ZWrite: 1
+    m_Colors:
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _DetailAlbedoColor_1: {r: 0, g: 0, b: 0, a: 1}
+    - _DetailAlbedoColor_2: {r: 0, g: 0, b: 0, a: 1}
+    - _DetailAlbedoColor_3: {r: 0, g: 0, b: 0, a: 1}
+    - _DetailAlbedoColor_4: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 388.02353, g: 388.02353, b: 388.02353, a: 1}
+    - _LaserColor: {r: 0.9433962, g: 0.17354932, b: 0.17354932, a: 1}
+    - _ProGameOutDir: {r: -1.04, g: 1.9, b: 1.61, a: 0}
+    - _ShadowColor: {r: 0.83, g: 0.89, b: 0.96999997, a: 0.25}
+    - _WorldPos: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

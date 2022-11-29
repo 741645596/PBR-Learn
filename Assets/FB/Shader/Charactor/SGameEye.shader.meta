@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0290ee119530c4c42b12a1f08a309fee
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _MainTexture: {instanceID: 0}
+  - _PrallexTex: {fileID: 2800000, guid: 926dfbe93ef046d43be3df56b04e082b, type: 3}
+  - _CausticTex: {fileID: 2800000, guid: 3a357fe7344f75e4582b42d82db9b355, type: 3}
+  - _ReflectMatcap: {fileID: 2800000, guid: 319939ee42562f949bdd0735afcaeaf1, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEditor;
 
 using UnityEngine;
 using EditerUtils;
-using UnityEditor.Experimental.SceneManagement;
+using UnityEditor.SceneManagement;
 
 public static class AssetsCheckUILogic
 {

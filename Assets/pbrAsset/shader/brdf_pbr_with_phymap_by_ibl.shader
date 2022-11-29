@@ -89,8 +89,7 @@ Shader "pbr/pbr with phymap by IBL" {
                 //微表面法线
                 fixed3 h = normalize(lightDirection + viewDirection);
 
-                half attenuation = LIGHT_ATTENUATION(i);
-				half3 attenColor = _LightColor0.xyz; // *attenuation;
+				half3 attenColor = _LightColor0.xyz; 
                 fixed3 R = reflect(-viewDirection, normalDirection);
                 
 

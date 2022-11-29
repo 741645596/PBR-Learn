@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2b88e4ef00b454b4aa112cd1fdf8503b
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _BaseMap: {instanceID: 0}
+  - _BumpMap: {instanceID: 0}
+  - _OcclusionMap: {instanceID: 0}
+  - _JitterMap: {fileID: 2800000, guid: a9ca98adbdc7dc3459912b1f72a0deb5, type: 3}
+  nonModifiableTextures: []
+  preprocessorOverride: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
