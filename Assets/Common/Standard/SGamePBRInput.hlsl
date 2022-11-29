@@ -1,9 +1,9 @@
 #ifndef SGAME_PBRINPUT_INCLUDE
 	#define SGAME_PBRINPUT_INCLUDE
 
-	#include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
-	#include "Assets/Common/ShaderLibrary/Surface/ShadingModel.hlsl"
-	#include "Assets/Common/ShaderLibrary/Common/GlobalIllumination.hlsl"
+	#include "../ShaderLibrary/Common/CommonFunction.hlsl"
+	#include "../ShaderLibrary/Surface/ShadingModel.hlsl"
+	#include "../ShaderLibrary/Common/GlobalIllumination.hlsl"
 
 	CBUFFER_START(UnityPerMaterial)
 

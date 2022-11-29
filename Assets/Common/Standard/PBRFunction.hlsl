@@ -1,8 +1,8 @@
 #ifndef PBR_FUNCTION_INCLUDE
     #define PBR_FUNCTION_INCLUDE
 
-    #include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
-    #include "Assets/Common/ShaderLibrary/Surface/ShadingModel.hlsl"
+    #include "../ShaderLibrary/Common/CommonFunction.hlsl"
+    #include "../ShaderLibrary/Surface/ShadingModel.hlsl"
 
     ///////// Roughness ////////////////////
     void UnityRoughness(half smoothness,inout half perceptualRoughness,inout half roughness,inout half roughness2)

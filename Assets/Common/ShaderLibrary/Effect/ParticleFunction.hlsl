@@ -1,7 +1,7 @@
 #ifndef SGAME_PARTICLESFUN_INCLUDE
     #define SGAME_PARTICLESFUN_INCLUDE
 
-    #include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
+    #include "../Common/CommonFunction.hlsl"
 
     //UV按照中心旋转
     //uv:原UV坐标

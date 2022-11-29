@@ -27,7 +27,7 @@
     #define MIN_ROUGHNESS            0.002025
 #endif
 
-#include "Assets/Common/ShaderLibrary/Math/Math.hlsl"
+#include "../Math/Math.hlsl"
 
 //------------------------------------------------------------------------------
 // Specular BRDF

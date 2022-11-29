@@ -101,14 +101,6 @@ Shader "FeiYun/Scene/MaJiangZi_Shadow"
                 return vertex;
             }
 
-            // float4 RotateAroundYInDegrees (float4 vertex, float degrees)
-            // {
-            //     float alpha = degrees * UNITY_PI / 180;
-            //     float sina, cosa;
-            //     sincos(alpha, sina, cosa);
-            //     float2x2 m = float2x2(cosa, sina, -sina, cosa);
-            //     return float4(vertex.yz , mul(m, vertex.xz)).xzyw ;				
-            // }
 
 
             
