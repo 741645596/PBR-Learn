@@ -1,4 +1,4 @@
-﻿
+
 Shader "FB/Particle/MRimAlphaBlend" {
 	Properties {
 		_EdgeColor ("Edge Color", Color) = (1,1,1,1)
@@ -21,7 +21,7 @@ Shader "FB/Particle/MRimAlphaBlend" {
 			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl" 
+			#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl" 
 			
 			CBUFFER_START(HeroURPGroups) 
 				TEXTURE2D_X(_MainTex); SAMPLER(sampler_MainTex);

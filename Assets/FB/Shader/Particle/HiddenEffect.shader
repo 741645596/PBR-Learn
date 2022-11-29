@@ -43,7 +43,7 @@ Shader "FB/Particle/HiddenEffect" {
             #pragma multi_compile _ USINGTOGGLEFRESNEL
             #pragma vertex vert
             #pragma fragment frag
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
                 half4 _BaseColor;

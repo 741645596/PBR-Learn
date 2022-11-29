@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/HeatRefractionForHight"
+Shader "FB/Particle/HeatRefractionForHight"
 {
     Properties
     {
@@ -35,7 +35,7 @@
             #pragma fragment frag
             #define REQUIRE_OPAQUE_TEXTURE
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareOpaqueTexture.hlsl"
 
             //URP的渲染截屏采样 需要添加一个Overlay的Camera，CullingMask设置Nothing，并把这个Camera添加到主Camera的Stack里面

@@ -74,7 +74,7 @@ Shader "FB/Particle/DistortSHDissolveMask"
             
             #pragma vertex vert
             #pragma fragment frag
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             //#pragma target 2.0
             CBUFFER_START(UnityPerMaterial)

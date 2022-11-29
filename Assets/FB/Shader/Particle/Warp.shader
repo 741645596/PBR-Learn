@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/Wrap"
+Shader "FB/Particle/Wrap"
 {
     Properties
     {
@@ -36,7 +36,7 @@
             #pragma fragment frag
 
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl" 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
 

@@ -41,7 +41,7 @@ Shader "FB/Particle/AlphaBlendAlways" {
             #pragma vertex vert
             #pragma fragment frag
             #pragma target 3.0
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(HeroURPGroups) 
 

@@ -41,7 +41,7 @@ Shader "FB/Particle/BumpOffset"
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
             #pragma multi_compile _ USINGDISSOLVE
             //TEXTURE2D_X(_DepthMap);
             sampler _DepthMap;

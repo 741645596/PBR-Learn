@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/ScreenView"
+Shader "FB/Particle/ScreenView"
 {
     Properties
     {
@@ -63,7 +63,7 @@
             #pragma shader_feature _ _MASKENABLE_ON
             #pragma shader_feature _ DISTORTENABLE 
             #pragma multi_compile _ _VIEWUV_ON
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(HeroURPGroups) 
 

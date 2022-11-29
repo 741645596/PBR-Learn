@@ -1,4 +1,4 @@
-﻿
+
 Shader "FB/Particle/MAdditiveMasUVOffset1"
 {
 	Properties 
@@ -25,7 +25,7 @@ Shader "FB/Particle/MAdditiveMasUVOffset1"
 			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl" 
+			#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl" 
 
 			CBUFFER_START(HeroURPGroups) 
 

@@ -1,4 +1,4 @@
-﻿
+
 Shader "FB/Particle/MAlphaBlend" {
 	Properties {
 		_TintColor ("Tint Color", Color) = (1.0,1.0,1.0,1.0)
@@ -22,7 +22,7 @@ Shader "FB/Particle/MAlphaBlend" {
 			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl" 
+			#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl" 
 
 			CBUFFER_START(HeroURPGroups) 
 				TEXTURE2D_X(_MainTex); SAMPLER(sampler_MainTex);

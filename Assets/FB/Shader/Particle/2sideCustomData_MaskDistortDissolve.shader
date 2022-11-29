@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/2sideCustomData_MaskDistortDissolve"
+Shader "FB/Particle/2sideCustomData_MaskDistortDissolve"
 {
     Properties
     {
@@ -61,7 +61,7 @@
 
     HLSLINCLUDE
 
-    #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+    #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
     CBUFFER_START(UnityPerMaterial)
         float4 _FrontColor;

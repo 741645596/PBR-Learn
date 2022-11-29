@@ -26,7 +26,7 @@ Shader "FB/Particle/Add" {
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             TEXTURE2D_X(_MainTex); SAMPLER(sampler_MainTex);
 

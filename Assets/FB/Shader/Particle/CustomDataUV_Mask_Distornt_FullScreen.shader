@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/U_Mask_Distornt_FullScreen"
+Shader "FB/Particle/U_Mask_Distornt_FullScreen"
 {
     Properties
     {
@@ -92,7 +92,7 @@
             #pragma multi_compile _ DISTORTENABLE
             #pragma multi_compile _ _DISSOLVE_ON
             
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
             
             CBUFFER_START(UnityPerMaterial)
 

@@ -54,7 +54,7 @@ Shader "FB/Particle/Fresnel3Translucent"
             
             #pragma vertex vert
             #pragma fragment frag
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
 

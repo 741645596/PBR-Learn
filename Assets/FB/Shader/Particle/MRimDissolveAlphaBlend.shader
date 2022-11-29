@@ -1,4 +1,4 @@
-﻿
+
 Shader "FB/Particle/MRimDissolveAlphaBlend" {
 	Properties {
 		_EdgeColor ("Edge Color", Color) = (1,1,1,1)
@@ -25,7 +25,7 @@ Shader "FB/Particle/MRimDissolveAlphaBlend" {
 			HLSLPROGRAM
 			#pragma vertex vert
 			#pragma fragment frag
-			#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl" 
+			#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl" 
 			
 			CBUFFER_START(HeroURPGroups) 
 

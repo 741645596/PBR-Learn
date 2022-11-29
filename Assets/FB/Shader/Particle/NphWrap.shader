@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/NphWrap"
+Shader "FB/Particle/NphWrap"
 {
     Properties
     {
@@ -38,8 +38,8 @@
 
             #pragma multi_compile _ _CUSTOMDATA_ON
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Common/CommonFunction.hlsl"
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
             
             CBUFFER_START(UnityPerMaterial)
                 float4 _DistortTex_TilingOffset;

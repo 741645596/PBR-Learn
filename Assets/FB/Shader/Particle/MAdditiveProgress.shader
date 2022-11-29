@@ -1,4 +1,4 @@
-﻿
+
 Shader "FB/Particle/MAdditiveProgress"
 {
 
@@ -39,7 +39,7 @@ Shader "FB/Particle/MAdditiveProgress"
 			#pragma multi_compile _DUMMY _CUTOFF_ON
 			#pragma multi_compile _DUMMY _SEPERATE_ALPHA_TEX_ON
 			//#pragma fragmentoption ARB_precision_hint_fastest	
-			#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl" 
+			#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl" 
 
 			CBUFFER_START(HeroURPGroups) 
 

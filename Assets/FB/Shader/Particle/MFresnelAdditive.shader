@@ -1,4 +1,4 @@
-﻿
+
 Shader "FB/Particle/MFresnelAdditive" {
 	Properties {
 		_Color("Main Color", Color) = (1,1,1,1)
@@ -28,7 +28,7 @@ Shader "FB/Particle/MFresnelAdditive" {
 			#pragma vertex vert
 			#pragma fragment frag
 			//#pragma fragmentoption ARB_precision_hint_fastest
-			#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl" 
+			#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl" 
 	
 			CBUFFER_START(HeroURPGroups) 
 				TEXTURE2D_X(_MainTex); SAMPLER(sampler_MainTex);

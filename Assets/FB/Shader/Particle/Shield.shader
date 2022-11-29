@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/Shield"
+Shader "FB/Particle/Shield"
 {
     Properties
     {
@@ -86,7 +86,7 @@
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Lighting.hlsl"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/SpaceTransforms.hlsl"
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
                 float4 _FrontColor;

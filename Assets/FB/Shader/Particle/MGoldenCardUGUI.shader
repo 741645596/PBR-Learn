@@ -151,7 +151,7 @@ Shader "FB/Particle/MGoldenCardUGUI"
 				#pragma fragment frag
 				//#pragma fragmentoption ARB_precision_hint_fastest	
 				#pragma target 3.0
-				#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+				#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 				
 				#define LAYER_MODE	1
 				#define FX3_BLENDMODE	1

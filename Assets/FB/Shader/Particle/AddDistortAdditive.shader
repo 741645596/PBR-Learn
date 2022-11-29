@@ -45,7 +45,7 @@ Shader "FB/Particle/AddDistortAdditive" {
 				#pragma fragment frag
 				#pragma fragmentoption ARB_precision_hint_fastest
 				#pragma multi_compile_particles
-				#include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+				#include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
 				CBUFFER_START(HeroURPGroups) 
 

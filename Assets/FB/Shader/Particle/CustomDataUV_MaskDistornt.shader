@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/CustomDataUV_MaskDistort"
+Shader "FB/Particle/CustomDataUV_MaskDistort"
 {
     Properties
     {
@@ -103,7 +103,7 @@
             #pragma exclude_renderers  d3d11_9x xbox360 xboxone ps3 ps4 psp2 
             #pragma target 3.0
             
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             TEXTURE2D(_MainTex); SAMPLER(sampler_MainTex);
             TEXTURE2D(_MaskTex); SAMPLER(sampler_MaskTex);

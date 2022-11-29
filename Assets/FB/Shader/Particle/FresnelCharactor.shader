@@ -53,7 +53,7 @@ Shader "FB/Particle/FresnelCharactor"
             
             #pragma vertex vert
             #pragma fragment frag
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(UnityPerMaterial)
                 half4 _TintColor, _FresnelColor;
@@ -152,7 +152,7 @@ Shader "FB/Particle/FresnelCharactor"
                 #pragma vertex vert
                 #pragma fragment frag
                 #pragma multi_compile _DUMMY _SHADOW_PROJECT_DIR_ON
-                #include "Assets/Renders/Shaders/ShaderLibrary/Shadow/FlatShadowSgame.hlsl"
+                #include "Assets/Common/ShaderLibrary/Shadow/FlatShadowSgame.hlsl"
             ENDHLSL
         }
 

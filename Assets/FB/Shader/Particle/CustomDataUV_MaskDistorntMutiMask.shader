@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/U_MaskDistorntMutiMask"
+Shader "FB/Particle/U_MaskDistorntMutiMask"
 {
     Properties
     {
@@ -98,7 +98,7 @@
             #pragma multi_compile_instancing 
             #pragma multi_compile_particles
             
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             TEXTURE2D(_MainTex); SAMPLER(sampler_MainTex);
             TEXTURE2D(_MaskTex); SAMPLER(sampler_MaskTex);

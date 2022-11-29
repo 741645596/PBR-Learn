@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/CubeMapRefract"
+Shader "FB/Particle/CubeMapRefract"
 {
     
     Properties
@@ -38,7 +38,7 @@
             #pragma fragment frag
             #pragma multi_compile _ USINGDISSOLVE
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
             samplerCUBE _CubeMap;
             TEXTURE2D_X(_DissolveMap);
             SAMPLER(sampler_DissolveMap);

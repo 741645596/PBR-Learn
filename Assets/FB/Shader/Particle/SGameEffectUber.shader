@@ -108,8 +108,8 @@ Shader "FB/Particle/SGameEffectUber"
 
     HLSLINCLUDE
 
-    #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
-    #include "Assets/Renders/Shaders/ShaderLibrary/Common/CommonFunction.hlsl"
+    #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
+    #include "Assets/Common/ShaderLibrary/Common/CommonFunction.hlsl"
 
     #pragma multi_compile _ _SECONDLAYER_ON
 

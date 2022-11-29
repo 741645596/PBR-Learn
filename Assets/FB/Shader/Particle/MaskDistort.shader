@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/MaskDistort"
+Shader "FB/Particle/MaskDistort"
 {
     Properties
     {
@@ -61,7 +61,7 @@
             //两种shader_feature写法 ,对应属性的 MaterialToggle
             #pragma shader_feature _ _MASKENABLE_ON
             #pragma shader_feature _ DISTORTENABLE 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             CBUFFER_START(HeroURPGroups) 
 

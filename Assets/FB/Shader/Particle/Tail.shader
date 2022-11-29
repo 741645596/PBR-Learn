@@ -1,4 +1,4 @@
-﻿Shader "FB/Particle/Tail"
+Shader "FB/Particle/Tail"
 {
     Properties
     {
@@ -49,7 +49,7 @@
             #pragma vertex vert
             #pragma fragment frag
 
-            #include "Assets/Renders/Shaders/ShaderLibrary/Effect/ParticleFunction.hlsl"
+            #include "Assets/Common/ShaderLibrary/Effect/ParticleFunction.hlsl"
 
             struct appdata
             {
