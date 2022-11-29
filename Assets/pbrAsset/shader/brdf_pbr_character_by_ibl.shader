@@ -1,23 +1,18 @@
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "liangairan/pbr/pbr in character by IBL" {
+Shader "pbr/pbr in character by IBL" {
 // 　　　　　　D(h) F(v,h) G(l,v,h)
 //f(l,v) = ---------------------------
 // 　　　　　　4(n·l)(n·v)
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-    _RoughnessTex("Metal & Roughness Map (RGB)", 2D) = "white" {}
-    _NormalTex("NormalMap (RGB)", 2D) = "bump" {}
-    //_ShadowmapTex("ShadowMap", 2D) = "black" {}
-    _IrradianceMap("IrradianceMap", Cube) = "_Skybox" {}    //diffuse irradiance
-    _SpecularIndirectMap("SpecularIndirectMap", Cube) = "_Skybox" {}
-    _BRDFLUTTex("Brdf lut map", 2D) = "white" {}
+        _RoughnessTex("Metal & Roughness Map (RGB)", 2D) = "white" {}
+        _NormalTex("NormalMap (RGB)", 2D) = "bump" {}
+        _IrradianceMap("IrradianceMap", Cube) = "_Skybox" {}    //diffuse irradiance
+        _SpecularIndirectMap("SpecularIndirectMap", Cube) = "_Skybox" {}
+        _BRDFLUTTex("Brdf lut map", 2D) = "white" {}
         _Roughness ("Roughness", Range(0,1)) = 0
         _Metallic("Metallicness",Range(0,1)) = 0
         _F0 ("Fresnel coefficient", Color) = (1,1,1,1)
-        _ShadowScale ("ShadowScale", Range(0,1)) = 0
-        _DepthBias("DepthBias", Range(-1,1)) = 0
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -30,26 +25,21 @@ Shader "liangairan/pbr/pbr in character by IBL" {
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
             #include "Lighting.cginc"
-#include "pbrInclude.cginc"
+            #include "pbrInclude.cginc"
             #pragma target 3.0
             #pragma vertex vert
             #pragma fragment frag
-            #pragma exclude_renderers xbox360 flash	
             #pragma multi_compile_fwdbase 
 
             sampler2D _MainTex;
-        sampler2D _RoughnessTex;
-        sampler2D _NormalTex;
-        //sampler2D _ShadowmapTex;
-        samplerCUBE _IrradianceMap;
-        UNITY_DECLARE_TEXCUBE(_SpecularIndirectMap);
-        sampler2D _BRDFLUTTex;
+            sampler2D _RoughnessTex;
+            sampler2D _NormalTex;
+            samplerCUBE _IrradianceMap;
+            UNITY_DECLARE_TEXCUBE(_SpecularIndirectMap);
+            sampler2D _BRDFLUTTex;
             float _Roughness;
             float _Metallic;
             fixed4 _F0;
-            float _ShadowScale;
-            float4x4 LightProjectionMatrix;
-            float _DepthBias;
 
             struct appdata
             {
@@ -69,9 +59,6 @@ Shader "liangairan/pbr/pbr in character by IBL" {
                 half3 posWorld : TEXCOORD2;
                 half3 tangentWorld : TEXCOORD3;
                 half3 binormalWorld : TEXCOORD4;
-                SHADOW_COORDS(5)
-                //    half4 proj : TEXCOORD6;
-                //half2 depth : TEXCOORD7;
             };
 
 
@@ -80,18 +67,12 @@ Shader "liangairan/pbr/pbr in character by IBL" {
                 VSOut o;
                 o.color = v.color;
                 o.pos = UnityObjectToClipPos(v.vertex);
-                //TANGENT_SPACE_ROTATION;
                 o.uv = v.uv;
                 o.normalWorld = UnityObjectToWorldNormal(v.normal);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-                //TRANSFER_VERTEX_TO_FRAGMENT(o);
                 o.tangentWorld = UnityObjectToWorldDir(v.tangent.xyz);
                 o.binormalWorld = cross(normalize(o.normalWorld), normalize(o.tangentWorld.xyz)) * v.tangent.w;
                 TRANSFER_SHADOW(o);
-
-                //float4x4 matWLP = mul(LightProjectionMatrix, unity_ObjectToWorld);
-                //o.proj = mul(matWLP, v.vertex);
-                //o.depth = o.proj.zw;
                 return o;
             }
 
@@ -153,19 +134,10 @@ Shader "liangairan/pbr/pbr in character by IBL" {
                 fixed3 indirectSpecular = indirectEnvColor * (kS * brdf.x + brdf.y);
 
                 lightOut.rgb += indirectDiffuse + indirectSpecular;
-
-                float  atten = saturate(SHADOW_ATTENUATION(i) + _ShadowScale);
-                fixed3 shadow = max(UNITY_LIGHTMODEL_AMBIENT.xyz, fixed3(atten, atten, atten));
-
-                //lightOut.rgb *= shadow;
-                //lightOut.rgb = lightOut.rgb / (lightOut.rgb + fixed3(1.0, 1.0, 1.0));
-                //float gama = 1.0 / 2.2;
-                //lightOut.rgb = pow(lightOut.rgb, fixed3(gama, gama, gama));
                 lightOut.a = 1.0f;
                 return lightOut;
             }
             ENDCG
         }
 	}
-    FallBack "Diffuse"
 }

@@ -1,3 +1,6 @@
+#ifndef PBR_CORE
+#define PBR_CORE
+
 #define PI 3.14159265359
 
 //F(v,h)公式 cosTheta = v dot h
@@ -95,3 +98,6 @@ float3 fresnelSchlickRoughness(float cosTheta, float3 F0, float roughness)
 {
 	return F0 + (max(float3(1, 1, 1) * (1 - roughness), F0) - F0) * pow(1.0 - cosTheta, 5.0);
 }
+
+
+#endif

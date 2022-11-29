@@ -1,4 +1,4 @@
-Shader "liangairan/pbr/pbr simple" {
+Shader "pbr/pbr simple" {
 // 　　　　　　D(h) F(v,h) G(l,v,h)
 //f(l,v) = ---------------------------
 // 　　　　　　4(n·l)(n·v)
@@ -23,7 +23,6 @@ Shader "liangairan/pbr/pbr simple" {
             #pragma target 3.0
             #pragma vertex vert
             #pragma fragment frag
-            #pragma exclude_renderers xbox360 flash	
             #pragma multi_compile_fwdbase 
             #define PI 3.14159265359
 
@@ -52,7 +51,6 @@ Shader "liangairan/pbr/pbr simple" {
                 half3 normalWorld : TEXCOORD1;
                 half3 posWorld : TEXCOORD2;
 				half3 tangentWorld : TEXCOORD3;
-                SHADOW_COORDS(4)
             };
 
             //F(v,h)公式 cosTheta = v dot h
@@ -122,12 +120,10 @@ Shader "liangairan/pbr/pbr simple" {
                 VSOut o;
                 o.color = v.color;
                 o.pos = UnityObjectToClipPos(v.vertex);
-                //TANGENT_SPACE_ROTATION;
                 o.uv = v.uv;
                 o.normalWorld = UnityObjectToWorldNormal(v.normal);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
 				o.tangentWorld = UnityObjectToWorldDir(v.tangent.xyz);
-                TRANSFER_SHADOW(o);
                 return o;
             }
 
@@ -166,22 +162,11 @@ Shader "liangairan/pbr/pbr simple" {
                 fixed4 lightOut;
                 fixed3 directDiffuse = (albedo.rgb / PI) * kD * totalLightColor * NdL;
                 lightOut.rgb = directDiffuse + specular * totalLightColor * NdL;
-                //lightOut.rgb = (kD * albedo.rgb / PI + specular) * attenColor * NdL;
-                //lightOut.rgb += UNITY_LIGHTMODEL_AMBIENT.xyz;
-                //lightOut.rgb = directDiffuse + specular * totalLightColor * NdL;
-                //fixed3 shadow = shadowAtten(i.depth, i.proj); //max(UNITY_LIGHTMODEL_AMBIENT.xyz, fixed3(atten, atten, atten));
-                float  atten = SHADOW_ATTENUATION(i);
-                fixed3 shadow = max(UNITY_LIGHTMODEL_AMBIENT.xyz, fixed3(atten, atten, atten));
 
-                //lightOut.rgb *= shadow;
-                //lightOut.rgb = lightOut.rgb / (lightOut.rgb + fixed3(1.0, 1.0, 1.0));
-                //float gama = 1.0 / 2.2;
-                //lightOut.rgb = pow(lightOut.rgb, fixed3(gama, gama, gama));
                 lightOut.a = 1.0f;
                 return lightOut;
             }
             ENDCG
         }
 	}
-    FallBack "Diffuse"
 }

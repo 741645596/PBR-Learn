@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "liangairan/pbr/prefilterSpecularMap" {
+Shader "pbr/prefilterSpecularMap" {
 // 　　　　　　D(h) F(v,h) G(l,v,h)
 //f(l,v) = ---------------------------
 // 　　　　　　4(n·l)(n·v)
@@ -173,5 +171,4 @@ Shader "liangairan/pbr/prefilterSpecularMap" {
             ENDCG
         }
 	}
-    //FallBack "Diffuse"
 }

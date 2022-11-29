@@ -1,6 +1,4 @@
-﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "liangairan/pbr/prefilterIrradianceCubemap" {
+Shader "pbr/prefilterIrradianceCubemap" {
 // 　　　　　　D(h) F(v,h) G(l,v,h)
 //f(l,v) = ---------------------------
 // 　　　　　　4(n·l)(n·v)
@@ -23,8 +21,6 @@ Shader "liangairan/pbr/prefilterIrradianceCubemap" {
             #pragma target 3.0
             #pragma vertex vert
             #pragma fragment frag
-            #pragma exclude_renderers xbox360 flash	
-            //#pragma multi_compile_fwdbase 
             #define PI 3.14159265359
 
             samplerCUBE _Cube;
@@ -103,5 +99,4 @@ Shader "liangairan/pbr/prefilterIrradianceCubemap" {
             ENDCG
         }
 	}
-    //FallBack "Diffuse"
 }

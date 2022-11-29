@@ -1,18 +1,15 @@
-Shader "liangairan/pbr/pbr with smoothmap" {
+Shader "pbr/pbr with smoothmap" {
 // 　　　　　　D(h) F(v,h) G(l,v,h)
 //f(l,v) = ---------------------------
 // 　　　　　　4(n·l)(n·v)
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
-    _RoughnessTex("SpecularMap (RGB)", 2D) = "white" {}
-    _NormalTex("NormalMap (RGB)", 2D) = "bump" {}
-    _ShadowmapTex("ShadowMap", 2D) = "black" {}
+        _RoughnessTex("SpecularMap (RGB)", 2D) = "white" {}
+        _NormalTex("NormalMap (RGB)", 2D) = "bump" {}
         _Roughness ("Roughness", Range(0,1)) = 0
         _Metallic("Metallicness",Range(0,1)) = 0
         _F0 ("Fresnel coefficient", Color) = (1,1,1,1)
-        _ShadowScale ("ShadowScale", Range(0,1)) = 0
-        _DepthBias("DepthBias", Range(-1,1)) = 0
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -28,20 +25,15 @@ Shader "liangairan/pbr/pbr with smoothmap" {
             #pragma target 3.0
             #pragma vertex vert
             #pragma fragment frag
-            #pragma exclude_renderers xbox360 flash	
             #pragma multi_compile_fwdbase 
             #define PI 3.14159265359
 
             sampler2D _MainTex;
-        sampler2D _RoughnessTex;
-        sampler2D _NormalTex;
-        sampler2D _ShadowmapTex;
+            sampler2D _RoughnessTex;
+            sampler2D _NormalTex;
             float _Roughness;
             float _Metallic;
             fixed4 _F0;
-            float _ShadowScale;
-            float4x4 LightProjectionMatrix;
-            float _DepthBias;
 
             struct appdata
             {
@@ -61,9 +53,6 @@ Shader "liangairan/pbr/pbr with smoothmap" {
                 half3 posWorld : TEXCOORD2;
                 half3 tangentWorld : TEXCOORD3;
                 half3 binormalWorld : TEXCOORD4;
-                SHADOW_COORDS(5)
-                    half4 proj : TEXCOORD6;
-                half2 depth : TEXCOORD7;
             };
 
             //F(v,h)公式 cosTheta = v dot h
@@ -112,41 +101,14 @@ Shader "liangairan/pbr/pbr with smoothmap" {
                 VSOut o;
                 o.color = v.color;
                 o.pos = UnityObjectToClipPos(v.vertex);
-                //TANGENT_SPACE_ROTATION;
                 o.uv = v.uv;
                 o.normalWorld = UnityObjectToWorldNormal(v.normal);
                 o.posWorld = mul(unity_ObjectToWorld, v.vertex);
-                //TRANSFER_VERTEX_TO_FRAGMENT(o);
                 o.tangentWorld = UnityObjectToWorldDir(v.tangent.xyz);
                 o.binormalWorld = cross(normalize(o.normalWorld), normalize(o.tangentWorld.xyz)) * v.tangent.w;
-                TRANSFER_SHADOW(o);
-
-                float4x4 matWLP = mul(LightProjectionMatrix, unity_ObjectToWorld);
-                o.proj = mul(matWLP, v.vertex);
-                o.depth = o.proj.zw;
                 return o;
             }
 
-            fixed3 shadowAtten(half2 depth, half4 texCoord)
-            {
-                float depth1 = depth.x / depth.y;
-                //float4 dcol = tex2Dproj(_ShadowmapTex, UNITY_PROJ_COORD(texCoord));
-                //float d = DecodeFloatRGBA(dcol);
-                float d = SAMPLE_DEPTH_TEXTURE_PROJ(_ShadowmapTex, UNITY_PROJ_COORD(texCoord)).r;
-                //d = saturate(d * 0.5 + 0.5);
-
-                return fixed3(d, d, d);
-                //float d = Linear01Depth(SAMPLE_DEPTH_TEXTURE_PROJ(_ShadowmapTex, UNITY_PROJ_COORD(texCoord)).r);
-                if (d < 1)
-                {
-                    if (depth1 > (d + _DepthBias))
-                    {
-                        return UNITY_LIGHTMODEL_AMBIENT.xyz;
-                    }
-                }
-                
-                return fixed3(1, 1, 1);
-            }
 
             half4 frag(VSOut i) : COLOR
             {
@@ -188,16 +150,10 @@ Shader "liangairan/pbr/pbr with smoothmap" {
                 fixed4 DF;
                 DF.rgb = directDiffuse + NdL * specular * specularFactor;
 
-                //fixed3 shadow = shadowAtten(i.depth, i.proj); //max(UNITY_LIGHTMODEL_AMBIENT.xyz, fixed3(atten, atten, atten));
-                float  atten = saturate(SHADOW_ATTENUATION(i) + _ShadowScale);
-                fixed3 shadow = max(UNITY_LIGHTMODEL_AMBIENT.xyz, fixed3(atten, atten, atten));
-
-                //DF.rgb *= shadow;
                 DF.a = 1.0f;
                 return DF;
             }
             ENDCG
         }
 	}
-    FallBack "Diffuse"
 }
