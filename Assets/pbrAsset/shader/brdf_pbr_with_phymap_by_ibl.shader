@@ -21,7 +21,7 @@ Shader "pbr/pbr with phymap by IBL" {
 		
         Pass
         {
-            Tags { "LightMode" = "ForwardBase" }
+            Tags { "RenderPipeline" = "UniversalRenderPipeline" "LIGHTMODE" = "UniversalForward"  "RenderType" = "Opaque" }
             CGPROGRAM
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"

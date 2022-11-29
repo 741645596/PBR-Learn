@@ -18,7 +18,7 @@ Shader "liangairan/pbr/anisotropic pbr simple" {
 		
         Pass
         {
-            Tags { "LightMode" = "ForwardBase" }
+            Tags { "RenderPipeline" = "UniversalRenderPipeline" "LIGHTMODE" = "UniversalForward"  "RenderType" = "Opaque" }
             CGPROGRAM
             #include "UnityCG.cginc"
             #include "AutoLight.cginc"
