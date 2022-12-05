@@ -23,12 +23,7 @@ struct PixelData
     half4   emission;
     half3   bakedGI;
 
-    //#if _CUSTOM_LIGHT_COLOR
-    //    half3   customLightColor;
-    //#endif
-    //#if _CUSTOM_LIGHT_DIR
-    //    half3   customLightDir;
-    //#endif
+
 
      #if defined(_MAIN_LIGHT_SHADOWS) || defined(_MAIN_LIGHT_SHADOWS_CASCADE) && !defined(_RECEIVE_SHADOWS_OFF) && (defined(ENABLE_HQ_SHADOW) || defined(ENABLE_HQ_AND_UNITY_SHADOW))
          half hqShasow;

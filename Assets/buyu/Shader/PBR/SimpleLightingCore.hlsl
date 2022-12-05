@@ -120,12 +120,13 @@ inline void InitializeBRDFData(half3 albedo, half metallic, half3 specular, half
     InitializeBRDFDataDirect(specularpecularStrength, brdfDiffuse, brdfSpecular, reflectivity, oneMinusReflectivity, smoothness, alpha, outBRDFData);
 }
 // Computes the specular term for EnvironmentBRDF
+// 环境[间接光]高光
 half3 EnvironmentBRDFSpecular(BRDFData brdfData, half fresnelTerm)
 {
     float surfaceReduction = 1.0 / (brdfData.roughness2 + 1.0);
     return surfaceReduction * lerp(brdfData.specular, brdfData.grazingTerm, fresnelTerm);
 }
-
+// 间接光brdf： diffuse + specular
 half3 EnvironmentBRDF(BRDFData brdfData, half3 indirectDiffuse, half3 indirectSpecular, half fresnelTerm)
 {
     half3 c = indirectDiffuse * brdfData.diffuse;
@@ -134,6 +135,7 @@ half3 EnvironmentBRDF(BRDFData brdfData, half3 indirectDiffuse, half3 indirectSp
 }
 // Computes the scalar specular term for Minimalist CookTorrance BRDF
 // NOTE: needs to be multiplied with reflectance f0, i.e. specular color to complete
+// 直接光 specular brdf 计算
 half DirectBRDFSpecular(BRDFData brdfData, half3 normalWS, half3 lightDirectionWS, half3 viewDirectionWS)
 {
     half3 halfDir = SafeNormalize(lightDirectionWS + viewDirectionWS);
@@ -229,7 +231,10 @@ half3 SampleSHPixel(half3 L2Term, half3 normalWS)
 }
 #define SAMPLE_GI(lmName, shName, normalWSName) SampleSHPixel(shName, normalWSName)
 
-
+// 间接光高光部分，通过粗糙度，及反射向量采样cubeMap
+// 通过perceptualRoughness获取mip
+// 通过反射向量进行采样。
+// 再考虑ao因子
 half3 GlossyEnvironmentReflection(half3 reflectVector, half perceptualRoughness, half occlusion)
 {
 
@@ -247,14 +252,15 @@ half3 GlossyEnvironmentReflection(half3 reflectVector, half perceptualRoughness,
 
     return _GlossyEnvironmentColor.rgb * occlusion;
 }
-
+// 全局光，也就是间接光部分。
 half3 GlobalIllumination(BRDFData brdfData, half3 bakedGI, half occlusion,half3 normalWS, half3 viewDirectionWS)
 {
     half3 reflectVector = reflect(-viewDirectionWS, normalWS);
     half NoV = saturate(dot(normalWS, viewDirectionWS));
     half fresnelTerm = Pow4(1.0 - NoV);
-
-    half3 indirectDiffuse = bakedGI * occlusion;
+    // diffuse
+    half3 indirectDiffuse = bakedGI * occlusion;  
+    // specular
     half3 indirectSpecular = GlossyEnvironmentReflection(reflectVector, brdfData.perceptualRoughness, occlusion);
 
     half3 color = EnvironmentBRDF(brdfData, indirectDiffuse, indirectSpecular, fresnelTerm);
